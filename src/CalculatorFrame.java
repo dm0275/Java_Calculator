@@ -7,7 +7,7 @@ import java.awt.*;
 public class CalculatorFrame extends JFrame
 {
     private JPanel panel = new JPanel();
-    private JTextField field = new JTextField("This is a text field!");
+    private JTextField field = new JTextField("");
 
     public CalculatorFrame(String calculator)
     {
@@ -16,7 +16,10 @@ public class CalculatorFrame extends JFrame
         this.setSize(500,500);
         //this.getContentPane().setBackground(Color.BLACK);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-        panel.setBackground(Color.BLACK);
+        //panel.setBackground(Color.BLACK);
+        field.setEditable(true);
+        field.setColumns(10);
+        field.setDocument(new JTextFieldLimit(10));
         panel.add(field);
         this.add(panel);
     }
